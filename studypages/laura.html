@@ -153,62 +153,31 @@
         /* ]]> */
     </script>
     <script type="text/javascript" src="../js/tooltips.js" id="encyclopedia-tooltips-js"></script>
-    <script type="text/javascript" id="divi-custom-script-js-extra">
-        /* <![CDATA[ */
-        var DIVI = {
-            "item_count": "%d Item",
-            "items_count": "%d Items"
-        };
-        var et_builder_utils_params = {
-            "condition": {
-                "diviTheme": true,
-                "extraTheme": false
-            },
-            "scrollLocations": ["app", "top"],
-            "builderScrollLocations": {
-                "desktop": "app",
-                "tablet": "app",
-                "phone": "app"
-            },
-            "onloadScrollLocation": "app",
-            "builderType": "fe"
-        };
-        var et_frontend_scripts = {
-            "builderCssContainerPrefix": "#et-boc",
-            "builderCssLayoutPrefix": "#et-boc .et-l"
-        };
-        var et_pb_custom = {
-            "ajaxurl": "https:\/\/www.clearinghouse.edu.tum.de\/wp-admin\/admin-ajax.php",
-            "images_uri": "https:\/\/www.clearinghouse.edu.tum.de\/wp-content\/themes\/Divi\/images",
-            "builder_images_uri": "https:\/\/www.clearinghouse.edu.tum.de\/wp-content\/themes\/Divi\/includes\/builder\/images",
-            "et_frontend_nonce": "7381f48fa7",
-            "subscription_failed": "Bitte \u00fcberpr\u00fcfen Sie die Felder unten aus, um sicherzustellen, dass Sie die richtigen Informationen eingegeben.",
-            "et_ab_log_nonce": "a4cd635234",
-            "fill_message": "Bitte f\u00fcllen Sie die folgenden Felder aus:",
-            "contact_error_message": "Bitte folgende Fehler beheben:",
-            "invalid": "Ung\u00fcltige E-Mail",
-            "captcha": "Captcha",
-            "prev": "Vorherige",
-            "previous": "Vorherige",
-            "next": "Weiter",
-            "wrong_captcha": "Sie haben die falsche Zahl im Captcha eingegeben.",
-            "wrong_checkbox": "Kontrollk\u00e4stchen",
-            "ignore_waypoints": "no",
-            "is_divi_theme_used": "1",
-            "widget_search_selector": ".widget_search",
-            "ab_tests": [],
-            "is_ab_testing_active": "",
-            "page_id": "5498",
-            "unique_test_id": "",
-            "ab_bounce_rate": "5",
-            "is_cache_plugin_active": "no",
-            "is_shortcode_tracking": "",
-            "tinymce_uri": "https:\/\/www.clearinghouse.edu.tum.de\/wp-content\/themes\/Divi\/includes\/builder\/frontend-builder\/assets\/vendors",
-            "accent_color": "#3070b3",
-            "waypoints_options": []
-        };
-        var et_pb_box_shadow_elements = [];
-        /* ]]> */
+    <script type="text/javascript">
+        // Basic toggle functionality for et_pb_toggle elements
+        (function($) {
+            $(document).ready(function() {
+                $('.et_pb_toggle_title').click(function() {
+                    var $toggle = $(this).closest('.et_pb_toggle');
+                    var $content = $toggle.find('.et_pb_toggle_content');
+
+                    // Collapse all other toggles
+                    $('.et_pb_toggle').not($toggle).each(function() {
+                        $(this).removeClass('et_pb_toggle_open').addClass('et_pb_toggle_close');
+                        $(this).find('.et_pb_toggle_content').slideUp();
+                    });
+
+                    // Toggle the current one
+                    if ($toggle.hasClass('et_pb_toggle_open')) {
+                        $content.slideUp();
+                        $toggle.removeClass('et_pb_toggle_open').addClass('et_pb_toggle_close');
+                    } else {
+                        $content.slideDown();
+                        $toggle.removeClass('et_pb_toggle_close').addClass('et_pb_toggle_open');
+                    }
+                });
+            });
+        })(jQuery);
     </script>
     <script type="text/javascript" src="../js/scripts.min.js" id="divi-custom-script-js"></script>
     <script type="text/javascript" src="../js/common.js" id="et-core-common-js"></script>
